@@ -3,428 +3,778 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karad to Almatti: A Pastel Journey</title>
-    <!-- Tailwind CSS CDN -->
+    <title>The Deccan Royal Route: Karad to Almatti</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        cream: {
-                            50: '#fdfbf7',
-                            100: '#fcf8f2',
-                            200: '#f7f1e6',
-                            900: '#5c5446',
+                        royal: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6', // Teal
+                            800: '#115e59', // Dark Teal
+                            900: '#134e4a', // Deepest Teal
                         },
-                        pastel: {
-                            blue: '#e0f2fe',
-                            green: '#dcfce7',
-                            pink: '#fce7f3',
-                            peach: '#ffedd5',
-                            lavender: '#f3e8ff',
-                            mint: '#ccfbf1'
+                        gold: {
+                            100: '#fef9c3',
+                            400: '#facc15',
+                            600: '#ca8a04', // Antique Gold
                         },
-                        stone: {
-                            850: '#1c1917',
-                        }
+                        paper: '#fdfbf7', // Warm White
                     },
                     fontFamily: {
-                        sans: ['DM Sans', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
                         serif: ['Playfair Display', 'serif'],
-                    },
-                    borderRadius: {
-                        '4xl': '2rem',
                     }
                 }
             }
         }
     </script>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <!-- External CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Styles for Polish */
+        body {
+            background-color: #fdfbf7;
+            background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .tab-btn {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #ca8a04;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .tab-btn.active::after {
+            width: 100%;
+        }
+
+        .tab-btn.active {
+            color: #115e59;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Chat Widget Styles */
+        .chat-widget {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .chat-visible {
+            transform: translateY(0);
+        }
+        .chat-hidden {
+            transform: translateY(110%);
+        }
+        .typing-dot {
+            animation: typing 1.4s infinite ease-in-out both;
+        }
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+        
+        @keyframes typing {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+    </style>
+    <script>
+        // Global Image Error Handler with reliable fallback
+        function handleImageError(img) {
+            img.onerror = null;
+            img.src = 'https://placehold.co/800x600/f0fdfa/115e59?text=Image+Unavailable';
+        }
+    </script>
 </head>
-<body class="bg-cream-50 text-stone-800 antialiased font-sans selection:bg-rose-200 selection:text-rose-900">
+<body class="text-gray-800 antialiased">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-lg border-b border-stone-100 transition-all duration-300">
+    <nav class="glass-nav fixed w-full z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
-                <div class="flex items-center space-x-2 group cursor-pointer">
-                    <div class="bg-rose-100 p-2 rounded-xl group-hover:bg-rose-200 transition-colors duration-300">
-                        <svg class="w-6 h-6 text-rose-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="bg-royal-900 text-gold-400 p-2 rounded-lg">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m8-2a2 2 0 01-2-2h-4v4h6v-2a1 1 0 011-1z"></path></svg>
                     </div>
-                    <span class="font-serif font-bold text-2xl tracking-tight text-stone-800">Deccan<span class="text-rose-500 italic">Vibes</span></span>
+                    <div>
+                        <h1 class="font-serif font-bold text-xl text-royal-900 leading-none">Deccan<span class="text-gold-600">Odyssey</span></h1>
+                        <p class="text-[10px] uppercase tracking-widest text-gray-500 font-sans">Dec 4-6 • Road Trip</p>
+                    </div>
                 </div>
-                <div class="hidden md:flex space-x-10">
-                    <a href="#itinerary" class="text-stone-500 hover:text-rose-500 font-medium text-sm tracking-wide transition">Journey</a>
-                    <a href="#food" class="text-stone-500 hover:text-rose-500 font-medium text-sm tracking-wide transition">Flavors</a>
-                    <a href="#hotels" class="text-stone-500 hover:text-rose-500 font-medium text-sm tracking-wide transition">Stays</a>
-                    <a href="#calculator" class="text-stone-500 hover:text-rose-500 font-medium text-sm tracking-wide transition">Budget</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#itinerary" class="text-sm font-medium text-gray-600 hover:text-royal-800 transition">Itinerary</a>
+                    <a href="#hotels" class="text-sm font-medium text-gray-600 hover:text-royal-800 transition">Stays & Food</a>
+                    <a href="#tools" class="text-sm font-medium text-gray-600 hover:text-royal-800 transition">Trip Tools</a>
                 </div>
-                <button class="md:hidden p-2 rounded-xl text-stone-600 hover:bg-stone-100" id="mobile-menu-btn">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                <button onclick="toggleChat()" class="bg-royal-900 text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-royal-800 transition shadow-lg shadow-royal-900/20 flex items-center gap-2">
+                    <span class="text-lg">✨</span> Ask Guide
                 </button>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div class="hidden md:hidden bg-white/95 border-b border-stone-100 absolute w-full backdrop-blur-xl" id="mobile-menu">
-            <div class="px-6 pt-4 pb-6 space-y-3">
-                <a href="#itinerary" class="block text-lg font-serif text-stone-800">Journey</a>
-                <a href="#food" class="block text-lg font-serif text-stone-800">Flavors</a>
-                <a href="#hotels" class="block text-lg font-serif text-stone-800">Stays</a>
-                <a href="#calculator" class="block text-lg font-serif text-stone-800">Budget</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden">
-        <!-- Soft Background Elements -->
-        <div class="absolute inset-0 bg-cream-50 -z-20"></div>
-        <div class="absolute top-0 right-0 w-2/3 h-full bg-pastel-blue/20 rounded-l-full blur-3xl -z-10 translate-x-1/4"></div>
-        <div class="absolute bottom-0 left-0 w-1/2 h-full bg-pastel-peach/30 rounded-r-full blur-3xl -z-10 -translate-x-1/4"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in visible">
-            <div class="inline-flex items-center rounded-full bg-white border border-rose-100 px-6 py-2 text-sm font-medium text-stone-600 mb-8 shadow-sm hover:shadow-md transition cursor-default">
-                <span class="w-2 h-2 rounded-full bg-rose-400 mr-3 animate-pulse"></span>
-                Upcoming Trip: Dec 4th — Dec 6th
-            </div>
-            
-            <h1 class="text-5xl md:text-8xl font-serif font-medium tracking-tight mb-8 text-stone-900 leading-[1.1]">
-                Heritage & <br>
-                <span class="italic text-rose-500">Horizons</span>
+    <header class="pt-32 pb-24 px-4 text-center relative overflow-hidden">
+        <div class="max-w-5xl mx-auto relative z-10">
+            <span class="inline-block py-1 px-4 rounded-full bg-gold-100 text-gold-600 text-xs font-bold tracking-widest mb-6 border border-gold-400/20">
+                KARAD ➔ JATH ➔ BIJAPUR ➔ ALMATTI
+            </span>
+            <h1 class="text-5xl md:text-7xl font-serif text-royal-900 mb-8 font-medium">
+                The Royal Deccan <br/> <span class="italic text-gold-600">Heritage Drive</span>
             </h1>
-            
-            <p class="mt-4 max-w-2xl mx-auto text-xl text-stone-500 font-light leading-relaxed">
-                A 3-day soulful drive from Karad to the backwaters of Almatti, weaving through the architectural wonders of Bijapur.
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed mb-10 font-light">
+                Discover the spiritual energy of Shree Birul Bhairavnath, the whispering echoes of Gol Gumbaz, and the tranquil waters of the Krishna River.
             </p>
-
-            <!-- Weather Widget -->
-            <div class="mt-10 inline-flex items-center bg-white/60 backdrop-blur-sm border border-white rounded-2xl p-2 pr-6 shadow-sm">
-                <div class="bg-sky-100 p-3 rounded-xl mr-4">
-                    <svg class="w-6 h-6 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                </div>
-                <div class="text-left">
-                    <div class="text-xs text-stone-400 font-bold uppercase tracking-wider">Forecast</div>
-                    <div class="text-sm font-medium text-stone-700">Bijapur: Sunny, 28°C</div>
-                </div>
-            </div>
             
-            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-                <div class="bg-white rounded-3xl p-6 shadow-sm border border-stone-100 hover:shadow-lg transition duration-500">
-                    <div class="text-4xl font-serif text-rose-400 mb-2">550</div>
-                    <div class="text-xs font-bold text-stone-400 uppercase tracking-widest">Kilometers</div>
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto bg-white p-6 rounded-2xl shadow-xl shadow-gray-200/50 border border-gray-100">
+                <div class="text-center">
+                    <div class="text-2xl font-serif text-royal-800">550</div>
+                    <div class="text-[10px] uppercase text-gray-400 font-bold tracking-wider">Total KM</div>
                 </div>
-                <div class="bg-white rounded-3xl p-6 shadow-sm border border-stone-100 hover:shadow-lg transition duration-500">
-                    <div class="text-4xl font-serif text-teal-400 mb-2">3</div>
-                    <div class="text-xs font-bold text-stone-400 uppercase tracking-widest">Days</div>
+                <div class="text-center border-l border-gray-100">
+                    <div class="text-2xl font-serif text-royal-800">3</div>
+                    <div class="text-[10px] uppercase text-gray-400 font-bold tracking-wider">Days</div>
                 </div>
-                <div class="bg-white rounded-3xl p-6 shadow-sm border border-stone-100 hover:shadow-lg transition duration-500">
-                    <div class="text-4xl font-serif text-amber-400 mb-2">16th</div>
-                    <div class="text-xs font-bold text-stone-400 uppercase tracking-widest">Century Art</div>
+                <div class="text-center border-l border-gray-100">
+                    <div class="text-2xl font-serif text-royal-800">4+</div>
+                    <div class="text-[10px] uppercase text-gray-400 font-bold tracking-wider">Monuments</div>
                 </div>
-                <div class="bg-white rounded-3xl p-6 shadow-sm border border-stone-100 hover:shadow-lg transition duration-500">
-                    <div class="text-4xl font-serif text-indigo-400 mb-2">100%</div>
-                    <div class="text-xs font-bold text-stone-400 uppercase tracking-widest">Nature</div>
+                <div class="text-center border-l border-gray-100">
+                    <div class="text-2xl font-serif text-royal-800">2</div>
+                    <div class="text-[10px] uppercase text-gray-400 font-bold tracking-wider">Rivers</div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Itinerary Section -->
-    <section id="itinerary" class="py-24 relative">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-20">
-                <span class="text-rose-500 font-serif italic text-xl">The Plan</span>
-                <h2 class="text-4xl md:text-5xl font-serif font-medium text-stone-900 mt-2">Curated Daily Guide</h2>
-            </div>
-
-            <div class="space-y-12">
-                
-                <!-- Day 1 -->
-                <div class="group relative bg-white rounded-[2rem] p-8 md:p-12 shadow-sm hover:shadow-xl transition-all duration-500 border border-stone-100 fade-in">
-                    <div class="absolute top-0 right-0 bg-pastel-pink w-32 h-32 rounded-bl-[10rem] rounded-tr-[2rem] -z-10 opacity-50 transition-opacity group-hover:opacity-100"></div>
-                    <div class="md:flex gap-12 items-center">
-                        <div class="md:w-1/3 mb-8 md:mb-0">
-                            <div class="relative rounded-3xl overflow-hidden aspect-[4/5] shadow-lg rotate-2 group-hover:rotate-0 transition-transform duration-500">
-                                <img src="https://images.unsplash.com/photo-1628062121588-4e89771b9e67?q=80&w=800&auto=format&fit=crop" class="object-cover w-full h-full" alt="Gol Gumbaz">
-                                <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-xs font-bold text-stone-800">Dec 4th • Thursday</div>
-                            </div>
-                        </div>
-                        <div class="md:w-2/3">
-                            <h3 class="text-3xl font-serif text-stone-900 mb-4">Temples & The Deccan Taj</h3>
-                            <p class="text-stone-500 leading-relaxed mb-8 font-light text-lg">
-                                Begin with the spiritual calm of Jath. Traverse the plains to Bijapur, where history whispers from every dome. The day ends with the golden sunset at Ibrahim Rauza.
-                            </p>
-                            
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div class="bg-cream-50 p-4 rounded-2xl border border-stone-100">
-                                    <div class="text-rose-400 font-bold text-sm mb-1">06:00 AM</div>
-                                    <div class="text-stone-700 font-medium">Depart Karad</div>
-                                </div>
-                                <div class="bg-cream-50 p-4 rounded-2xl border border-stone-100">
-                                    <div class="text-rose-400 font-bold text-sm mb-1">08:30 AM</div>
-                                    <div class="text-stone-700 font-medium">Jath Temple Visit</div>
-                                </div>
-                                <div class="bg-cream-50 p-4 rounded-2xl border border-stone-100">
-                                    <div class="text-rose-400 font-bold text-sm mb-1">03:00 PM</div>
-                                    <div class="text-stone-700 font-medium">Gol Gumbaz Gallery</div>
-                                </div>
-                                <div class="bg-cream-50 p-4 rounded-2xl border border-stone-100">
-                                    <div class="text-rose-400 font-bold text-sm mb-1">05:00 PM</div>
-                                    <div class="text-stone-700 font-medium">Ibrahim Rauza Sunset</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Day 2 -->
-                <div class="group relative bg-white rounded-[2rem] p-8 md:p-12 shadow-sm hover:shadow-xl transition-all duration-500 border border-stone-100 fade-in">
-                    <div class="absolute top-0 left-0 bg-pastel-mint w-32 h-32 rounded-br-[10rem] rounded-tl-[2rem] -z-10 opacity-50 transition-opacity group-hover:opacity-100"></div>
-                    <div class="md:flex gap-12 items-center flex-row-reverse">
-                        <div class="md:w-1/3 mb-8 md:mb-0">
-                            <div class="relative rounded-3xl overflow-hidden aspect-[4/5] shadow-lg -rotate-2 group-hover:rotate-0 transition-transform duration-500">
-                                <img src="https://images.unsplash.com/photo-1596520772274-297eb653c07e?q=80&w=800&auto=format&fit=crop" class="object-cover w-full h-full" alt="Almatti">
-                                <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-xs font-bold text-stone-800">Dec 5th • Friday</div>
-                            </div>
-                        </div>
-                        <div class="md:w-2/3">
-                            <h3 class="text-3xl font-serif text-stone-900 mb-4">Cannons & Gardens</h3>
-                            <p class="text-stone-500 leading-relaxed mb-8 font-light text-lg">
-                                Marvel at the Malik-e-Maidan cannon before heading to the lush landscapes of Almatti. The evening is reserved for the magical musical fountains by the dam.
-                            </p>
-                            
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div class="bg-cream-50 p-4 rounded-2xl border border-stone-100">
-                                    <div class="text-teal-500 font-bold text-sm mb-1">09:00 AM</div>
-                                    <div class="text-stone-700 font-medium">Medieval Cannon</div>
-                                </div>
-                                <div class="bg-cream-50 p-4 rounded-2xl border border-stone-100">
-                                    <div class="text-teal-500 font-bold text-sm mb-1">01:30 PM</div>
-                                    <div class="text-stone-700 font-medium">Almatti Check-in</div>
-                                </div>
-                                <div class="bg-cream-50 p-4 rounded-2xl border border-stone-100 col-span-1 sm:col-span-2">
-                                    <div class="text-teal-500 font-bold text-sm mb-1">07:00 PM</div>
-                                    <div class="text-stone-700 font-medium">Musical Fountain Show (Must See)</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Day 3 -->
-                <div class="group relative bg-white rounded-[2rem] p-8 md:p-12 shadow-sm hover:shadow-xl transition-all duration-500 border border-stone-100 fade-in">
-                    <div class="absolute bottom-0 right-0 bg-pastel-blue w-32 h-32 rounded-tl-[10rem] rounded-br-[2rem] -z-10 opacity-50 transition-opacity group-hover:opacity-100"></div>
-                    <div class="md:flex gap-12 items-center">
-                        <div class="md:w-1/3 mb-8 md:mb-0">
-                            <div class="relative rounded-3xl overflow-hidden aspect-[4/5] shadow-lg rotate-1 group-hover:rotate-0 transition-transform duration-500">
-                                <img src="https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?q=80&w=800&auto=format&fit=crop" class="object-cover w-full h-full" alt="River View">
-                                <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-xs font-bold text-stone-800">Dec 6th • Saturday</div>
-                            </div>
-                        </div>
-                        <div class="md:w-2/3">
-                            <h3 class="text-3xl font-serif text-stone-900 mb-4">River Sangam & Return</h3>
-                            <p class="text-stone-500 leading-relaxed mb-8 font-light text-lg">
-                                A slow morning by the water. Option to visit the holy Kudalasangama confluence before the drive back home, hearts full of memories.
-                            </p>
-                            
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div class="bg-cream-50 p-4 rounded-2xl border border-stone-100">
-                                    <div class="text-indigo-400 font-bold text-sm mb-1">09:00 AM</div>
-                                    <div class="text-stone-700 font-medium">Boating / Dam View</div>
-                                </div>
-                                <div class="bg-cream-50 p-4 rounded-2xl border border-stone-100">
-                                    <div class="text-indigo-400 font-bold text-sm mb-1">10:30 AM</div>
-                                    <div class="text-stone-700 font-medium">Kudalasangama (Optional)</div>
-                                </div>
-                                <div class="bg-cream-50 p-4 rounded-2xl border border-stone-100 col-span-1 sm:col-span-2">
-                                    <div class="text-indigo-400 font-bold text-sm mb-1">07:30 PM</div>
-                                    <div class="text-stone-700 font-medium">Arrive Back in Karad</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+    <!-- ITINERARY SECTION -->
+    <section id="itinerary" class="py-16 max-w-7xl mx-auto px-4">
+        
+        <!-- Day Tabs Header -->
+        <div class="flex flex-wrap justify-center gap-4 mb-16">
+            <button onclick="switchDay('day1')" id="btn-day1" class="day-btn active bg-royal-900 text-white px-8 py-3 rounded-xl font-serif text-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+                Day 1 <span class="block text-xs font-sans opacity-70 font-normal">Dec 4 • Jath & Bijapur</span>
+            </button>
+            <button onclick="switchDay('day2')" id="btn-day2" class="day-btn bg-white text-gray-500 border border-gray-200 px-8 py-3 rounded-xl font-serif text-lg hover:bg-gray-50 transition-all">
+                Day 2 <span class="block text-xs font-sans opacity-70 font-normal">Dec 5 • Heritage & Dam</span>
+            </button>
+            <button onclick="switchDay('day3')" id="btn-day3" class="day-btn bg-white text-gray-500 border border-gray-200 px-8 py-3 rounded-xl font-serif text-lg hover:bg-gray-50 transition-all">
+                Day 3 <span class="block text-xs font-sans opacity-70 font-normal">Dec 6 • Sangam & Return</span>
+            </button>
         </div>
-    </section>
 
-    <!-- NEW SECTION: Local Flavors -->
-    <section id="food" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-16">
-                <span class="text-teal-500 font-serif italic text-xl">Culinary Stops</span>
-                <h2 class="text-4xl md:text-5xl font-serif font-medium text-stone-900 mt-2">Local Flavors to Try</h2>
-            </div>
+        <!-- DAY 1 CONTENT -->
+        <div id="day1" class="day-content space-y-12">
             
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-cream-50 rounded-3xl p-8 hover:-translate-y-2 transition duration-300">
-                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm text-3xl">🍛</div>
-                    <h4 class="text-xl font-bold text-stone-900 mb-2">Jolada Rotti Oota</h4>
-                    <p class="text-stone-500 text-sm leading-relaxed">The staple meal of North Karnataka. Sorghum bread served with spicy curries (ennegai), chutneys, and curd. A must-have in Bijapur.</p>
-                </div>
-                <div class="bg-cream-50 rounded-3xl p-8 hover:-translate-y-2 transition duration-300">
-                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm text-3xl">🌶️</div>
-                    <h4 class="text-xl font-bold text-stone-900 mb-2">Shenga Chutney</h4>
-                    <p class="text-stone-500 text-sm leading-relaxed">Spicy peanut powder that accompanies every meal. Perfect to buy in packets to take back home from local markets.</p>
-                </div>
-                <div class="bg-cream-50 rounded-3xl p-8 hover:-translate-y-2 transition duration-300">
-                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm text-3xl">☕</div>
-                    <h4 class="text-xl font-bold text-stone-900 mb-2">Highway Chai</h4>
-                    <p class="text-stone-500 text-sm leading-relaxed">The Jath-Bijapur road has small tapris serving thick, sweet tea. A perfect break during the drive.</p>
+            <!-- Place Card 1: Jath -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-xl shadow-gray-200/40 border border-gray-100 transition-all hover:shadow-2xl">
+                <div class="grid lg:grid-cols-12 gap-0">
+                    <!-- Image Side -->
+                    <div class="lg:col-span-5 bg-gray-100 relative h-64 lg:h-auto overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-1605634261273-d34e902b6343?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Jath Temple Vibe" onerror="handleImageError(this)">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-md text-xs font-bold text-royal-900 shadow-sm">08:30 AM • Jath</div>
+                    </div>
+                    <div class="lg:col-span-7 p-8 lg:p-10">
+                        <div class="flex justify-between items-start">
+                            <h2 class="text-3xl font-serif text-royal-900 mb-2">Shree Birul Bhairavnath</h2>
+                            <button onclick="revealSecret(this, 'Jath Temple')" class="text-xs bg-gold-100 text-gold-700 px-3 py-1 rounded-full border border-gold-200 hover:bg-gold-200 transition flex items-center gap-1">
+                                ✨ <span class="gemini-label">Secret History</span>
+                            </button>
+                        </div>
+                        <div class="gemini-response hidden mt-2 mb-4 p-3 bg-gold-50 rounded-lg text-sm text-gray-700 border border-gold-100 italic animate-pulse">
+                            <!-- Gemini content will go here -->
+                        </div>
+
+                        <p class="text-gray-500 text-sm mb-6 font-light">The spiritual guardian of Jath. A place of immense faith and history.</p>
+                        
+                        <div class="border-b border-gray-100 mb-6 flex space-x-6">
+                            <button onclick="switchPlaceInfo(this, 'jath-about')" class="tab-btn active pb-2 text-sm font-bold text-royal-800">About</button>
+                            <button onclick="switchPlaceInfo(this, 'jath-see')" class="tab-btn pb-2 text-sm font-medium text-gray-400 hover:text-gray-600">Must See</button>
+                        </div>
+
+                        <div id="jath-about" class="place-info block fade-in">
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                This temple is dedicated to Shree Kalbhairavnath (Birdev). It was historically significant under the Dafale rulers of the Jath princely state. The annual fair (Jatra) attracts thousands who cover the temple in turmeric (Bhandara).
+                            </p>
+                        </div>
+                        <div id="jath-see" class="place-info hidden fade-in">
+                            <ul class="space-y-3">
+                                <li class="flex items-start"><span class="text-gold-600 mr-2">✦</span> <span class="text-gray-700"><strong>Main Sanctum:</strong> The stone architecture is simple yet powerful.</span></li>
+                                <li class="flex items-start"><span class="text-gold-600 mr-2">✦</span> <span class="text-gray-700"><strong>Yellamma Devi:</strong> Visit the nearby shrine.</span></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Hotels Section -->
-    <section id="hotels" class="py-24 bg-cream-50 border-t border-stone-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-16">
-                <span class="text-amber-500 font-serif italic text-xl">Rest & Relax</span>
-                <h2 class="text-4xl md:text-5xl font-serif font-medium text-stone-900 mt-2">Where You'll Stay</h2>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-10">
-                <!-- Hotel Card 1 -->
-                <div class="bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col group">
-                    <div class="h-72 relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=800&auto=format&fit=crop" alt="Hotel Interior" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-                        <div class="absolute top-6 right-6 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full text-sm font-bold text-stone-800">Bijapur</div>
+            <!-- Place Card 2: Gol Gumbaz -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-xl shadow-gray-200/40 border border-gray-100 transition-all hover:shadow-2xl">
+                <div class="grid lg:grid-cols-12 gap-0">
+                    <div class="lg:col-span-5 bg-gray-100 relative h-64 lg:h-auto overflow-hidden group">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Gol_Gumbaz_1.jpg/800px-Gol_Gumbaz_1.jpg" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Gol Gumbaz" onerror="handleImageError(this)">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-md text-xs font-bold text-royal-900 shadow-sm">03:00 PM • Bijapur</div>
                     </div>
-                    <div class="p-10 flex-1 flex flex-col">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-2xl font-serif font-bold text-stone-900">Madhuvan International</h3>
-                            <span class="bg-pastel-green text-emerald-800 text-xs px-3 py-1 rounded-full font-bold flex items-center h-6">4.2 ★</span>
+                    <div class="lg:col-span-7 p-8 lg:p-10">
+                        <div class="flex justify-between items-start">
+                            <h2 class="text-3xl font-serif text-royal-900 mb-2">Gol Gumbaz</h2>
+                            <button onclick="revealSecret(this, 'Gol Gumbaz acoustics')" class="text-xs bg-gold-100 text-gold-700 px-3 py-1 rounded-full border border-gold-200 hover:bg-gold-200 transition flex items-center gap-1">
+                                ✨ <span class="gemini-label">Fun Fact</span>
+                            </button>
                         </div>
-                        <p class="text-stone-500 mb-8 flex-1 leading-relaxed font-light">A reliable choice in the city center. Known for cleanliness and authentic cuisine. Close to Gol Gumbaz.</p>
-                        <div class="flex gap-3 mb-8">
-                            <span class="text-xs bg-stone-50 text-stone-600 px-3 py-1.5 rounded-lg">Free WiFi</span>
-                            <span class="text-xs bg-stone-50 text-stone-600 px-3 py-1.5 rounded-lg">Parking</span>
-                            <span class="text-xs bg-stone-50 text-stone-600 px-3 py-1.5 rounded-lg">Restaurant</span>
-                        </div>
-                        <a href="https://www.google.com/search?q=Hotel+Madhuvan+International+Bijapur" target="_blank" class="text-center w-full border border-stone-200 text-stone-600 font-medium py-3 rounded-xl hover:bg-stone-800 hover:text-white transition duration-300">View Rates</a>
-                    </div>
-                </div>
+                        <div class="gemini-response hidden mt-2 mb-4 p-3 bg-gold-50 rounded-lg text-sm text-gray-700 border border-gold-100 italic"></div>
 
-                <!-- Hotel Card 2 -->
-                <div class="bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col group relative ring-4 ring-rose-50">
-                    <div class="absolute top-6 left-6 z-10 bg-rose-500 text-white px-4 py-1.5 rounded-full text-xs font-bold shadow-lg tracking-wide">TOP PICK</div>
-                    <div class="h-72 relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=800&auto=format&fit=crop" alt="Resort View" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-                        <div class="absolute top-6 right-6 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full text-sm font-bold text-stone-800">Almatti</div>
-                    </div>
-                    <div class="p-10 flex-1 flex flex-col">
-                         <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-2xl font-serif font-bold text-stone-900">Mayura Krishna</h3>
-                            <span class="bg-pastel-green text-emerald-800 text-xs px-3 py-1 rounded-full font-bold flex items-center h-6">4.5 ★</span>
+                        <p class="text-gray-500 text-sm mb-6 font-light">The architectural pride of the Deccan.</p>
+                        
+                        <div class="border-b border-gray-100 mb-6 flex space-x-6">
+                            <button onclick="switchPlaceInfo(this, 'gol-about')" class="tab-btn active pb-2 text-sm font-bold text-royal-800">About</button>
+                            <button onclick="switchPlaceInfo(this, 'gol-see')" class="tab-btn pb-2 text-sm font-medium text-gray-400 hover:text-gray-600">Must See</button>
+                            <button onclick="switchPlaceInfo(this, 'gol-media')" class="tab-btn pb-2 text-sm font-medium text-gray-400 hover:text-gray-600">Media</button>
                         </div>
-                        <p class="text-stone-500 mb-8 flex-1 leading-relaxed font-light">The only property with a direct view of the dam and gardens. Waking up to the view of the Krishna river is an experience in itself.</p>
-                         <div class="flex gap-3 mb-8">
-                            <span class="text-xs bg-rose-50 text-rose-700 px-3 py-1.5 rounded-lg">Dam View</span>
-                            <span class="text-xs bg-rose-50 text-rose-700 px-3 py-1.5 rounded-lg">Garden Access</span>
-                            <span class="text-xs bg-rose-50 text-rose-700 px-3 py-1.5 rounded-lg">Cottages</span>
+
+                        <div id="gol-about" class="place-info block fade-in">
+                            <p class="text-gray-600 leading-relaxed mb-4">
+                                The mausoleum of King Mohammed Adil Shah. Its massive dome stands without any pillar support. It is famous for its acoustic properties where sound echoes multiple times.
+                            </p>
                         </div>
-                        <a href="https://kstdc.co/hotels/mayura-krishna-almatti/" target="_blank" class="text-center w-full bg-rose-400 text-white font-medium py-3 rounded-xl hover:bg-rose-500 transition duration-300 shadow-lg shadow-rose-200">Book via KSTDC</a>
+                        <div id="gol-see" class="place-info hidden fade-in">
+                            <ul class="space-y-3">
+                                <li class="flex items-start"><span class="text-gold-600 mr-2">✦</span> <span class="text-gray-700"><strong>Whispering Gallery:</strong> Located just below the dome.</span></li>
+                                <li class="flex items-start"><span class="text-gold-600 mr-2">✦</span> <span class="text-gray-700"><strong>Rooftop:</strong> Offers a panoramic view of Bijapur city.</span></li>
+                            </ul>
+                        </div>
+                        <div id="gol-media" class="place-info hidden fade-in">
+                            <div class="grid grid-cols-3 gap-2">
+                                <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Gol_Gumbaz_Bijapur.jpg/400px-Gol_Gumbaz_Bijapur.jpg" target="_blank" class="block rounded-lg overflow-hidden h-20 bg-gray-100 hover:opacity-80">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Gol_Gumbaz_Bijapur.jpg/400px-Gol_Gumbaz_Bijapur.jpg" class="w-full h-full object-cover" onerror="handleImageError(this)">
+                                </a>
+                                <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Gol_Gumbaz_Dome_Interior.jpg/400px-Gol_Gumbaz_Dome_Interior.jpg" target="_blank" class="block rounded-lg overflow-hidden h-20 bg-gray-100 hover:opacity-80">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Gol_Gumbaz_Dome_Interior.jpg/400px-Gol_Gumbaz_Dome_Interior.jpg" class="w-full h-full object-cover" onerror="handleImageError(this)">
+                                </a>
+                                <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Gol_Gumbaz_Naqqar_Khana.jpg/400px-Gol_Gumbaz_Naqqar_Khana.jpg" target="_blank" class="block rounded-lg overflow-hidden h-20 bg-gray-100 hover:opacity-80">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Gol_Gumbaz_Naqqar_Khana.jpg/400px-Gol_Gumbaz_Naqqar_Khana.jpg" class="w-full h-full object-cover" onerror="handleImageError(this)">
+                                </a>
+                            </div>
+                            <p class="text-xs text-center mt-2 text-gray-400">Click thumbnails to view details</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- DAY 2 CONTENT -->
+        <div id="day2" class="day-content hidden space-y-12">
+            <!-- Place: Bara Kaman -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-xl shadow-gray-200/40 border border-gray-100">
+                <div class="grid lg:grid-cols-12 gap-0">
+                    <div class="lg:col-span-5 bg-gray-100 relative h-64 lg:h-auto overflow-hidden group">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Bara_Kaman_Bijapur.jpg/800px-Bara_Kaman_Bijapur.jpg" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Bara Kaman" onerror="handleImageError(this)">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-md text-xs font-bold text-royal-900 shadow-sm">09:00 AM • Heritage</div>
+                    </div>
+                    <div class="lg:col-span-7 p-8 lg:p-10">
+                        <div class="flex justify-between items-start">
+                            <h2 class="text-3xl font-serif text-royal-900 mb-2">Bara Kaman</h2>
+                            <button onclick="revealSecret(this, 'Bara Kaman mystery')" class="text-xs bg-gold-100 text-gold-700 px-3 py-1 rounded-full border border-gold-200 hover:bg-gold-200 transition flex items-center gap-1">
+                                ✨ <span class="gemini-label">Why Unfinished?</span>
+                            </button>
+                        </div>
+                        <div class="gemini-response hidden mt-2 mb-4 p-3 bg-gold-50 rounded-lg text-sm text-gray-700 border border-gold-100 italic"></div>
+
+                        <p class="text-gray-500 text-sm mb-6 font-light">The unfinished glory.</p>
+                        
+                        <div class="border-b border-gray-100 mb-6 flex space-x-6">
+                            <button onclick="switchPlaceInfo(this, 'bara-about')" class="tab-btn active pb-2 text-sm font-bold text-royal-800">About</button>
+                            <button onclick="switchPlaceInfo(this, 'bara-see')" class="tab-btn pb-2 text-sm font-medium text-gray-400 hover:text-gray-600">Must See</button>
+                        </div>
+
+                        <div id="bara-about" class="place-info block fade-in">
+                            <p class="text-gray-600 leading-relaxed">
+                                The unfinished mausoleum of Ali Adil Shah II. It was meant to have 12 arches vertically and horizontally. The silhouette against the morning sky is spectacular.
+                            </p>
+                        </div>
+                        <div id="bara-see" class="place-info hidden fade-in">
+                            <ul class="space-y-3">
+                                <li class="flex items-start"><span class="text-gold-600 mr-2">✦</span> <span class="text-gray-700"><strong>The Shadows:</strong> Best visited in the morning for photography.</span></li>
+                                <li class="flex items-start"><span class="text-gold-600 mr-2">✦</span> <span class="text-gray-700"><strong>Malik-e-Maidan:</strong> Visit the nearby Great Cannon.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Place: Almatti -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-xl shadow-gray-200/40 border border-gray-100">
+                <div class="grid lg:grid-cols-12 gap-0">
+                    <div class="lg:col-span-5 bg-gray-100 relative h-64 lg:h-auto overflow-hidden group">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Almatti_Dam_Musical_Fountain.jpg/800px-Almatti_Dam_Musical_Fountain.jpg" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Almatti" onerror="handleImageError(this)">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-md text-xs font-bold text-royal-900 shadow-sm">07:00 PM • Almatti</div>
+                    </div>
+                    <div class="lg:col-span-7 p-8 lg:p-10">
+                        <h2 class="text-3xl font-serif text-royal-900 mb-2">Almatti Dam Gardens</h2>
+                        <p class="text-gray-500 text-sm mb-6 font-light">Nature and light spectacle.</p>
+                        
+                        <div class="border-b border-gray-100 mb-6 flex space-x-6">
+                            <button onclick="switchPlaceInfo(this, 'almatti-about')" class="tab-btn active pb-2 text-sm font-bold text-royal-800">About</button>
+                            <button onclick="switchPlaceInfo(this, 'almatti-see')" class="tab-btn pb-2 text-sm font-medium text-gray-400 hover:text-gray-600">Must See</button>
+                        </div>
+
+                        <div id="almatti-about" class="place-info block fade-in">
+                            <p class="text-gray-600 leading-relaxed">
+                                The Lal Bahadur Shastri Dam is a massive hydroelectric project. The attached gardens are beautifully maintained, offering a serene evening experience.
+                            </p>
+                        </div>
+                        <div id="almatti-see" class="place-info hidden fade-in">
+                            <ul class="space-y-3">
+                                <li class="flex items-start"><span class="text-gold-600 mr-2">✦</span> <span class="text-gray-700"><strong>Musical Fountain:</strong> Show starts at 7 PM sharp.</span></li>
+                                <li class="flex items-start"><span class="text-gold-600 mr-2">✦</span> <span class="text-gray-700"><strong>Mughal Garden:</strong> Inspired by Brindavan Gardens.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY 3 CONTENT -->
+        <div id="day3" class="day-content hidden space-y-12">
+            <!-- Place: Sangam -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-xl shadow-gray-200/40 border border-gray-100">
+                <div class="grid lg:grid-cols-12 gap-0">
+                    <div class="lg:col-span-5 bg-gray-100 relative h-64 lg:h-auto overflow-hidden group">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Kudalasangama.jpg/800px-Kudalasangama.jpg" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Sangam" onerror="handleImageError(this)">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-md text-xs font-bold text-royal-900 shadow-sm">10:00 AM • Kudalasangama</div>
+                    </div>
+                    <div class="lg:col-span-7 p-8 lg:p-10">
+                        <div class="flex justify-between items-start">
+                            <h2 class="text-3xl font-serif text-royal-900 mb-2">The Confluence</h2>
+                            <button onclick="revealSecret(this, 'Kudalasangama Basavanna')" class="text-xs bg-gold-100 text-gold-700 px-3 py-1 rounded-full border border-gold-200 hover:bg-gold-200 transition flex items-center gap-1">
+                                ✨ <span class="gemini-label">Spiritual Insight</span>
+                            </button>
+                        </div>
+                        <div class="gemini-response hidden mt-2 mb-4 p-3 bg-gold-50 rounded-lg text-sm text-gray-700 border border-gold-100 italic"></div>
+
+                        <p class="text-gray-500 text-sm mb-6 font-light">Where rivers Krishna and Malaprabha meet.</p>
+                        
+                        <div class="border-b border-gray-100 mb-6 flex space-x-6">
+                            <button onclick="switchPlaceInfo(this, 'sangam-about')" class="tab-btn active pb-2 text-sm font-bold text-royal-800">About</button>
+                            <button onclick="switchPlaceInfo(this, 'sangam-see')" class="tab-btn pb-2 text-sm font-medium text-gray-400 hover:text-gray-600">Must See</button>
+                        </div>
+
+                        <div id="sangam-about" class="place-info block fade-in">
+                            <p class="text-gray-600 leading-relaxed">
+                                A major pilgrimage center for Lingayats. It is the Aikya Mantapa (Samadhi) of the great philosopher Basavanna. The temple stands uniquely in the middle of the river.
+                            </p>
+                        </div>
+                        <div id="sangam-see" class="place-info hidden fade-in">
+                            <ul class="space-y-3">
+                                <li class="flex items-start"><span class="text-gold-600 mr-2">✦</span> <span class="text-gray-700"><strong>Aikya Mantapa:</strong> Visit via the bridge or coracle.</span></li>
+                                <li class="flex items-start"><span class="text-gold-600 mr-2">✦</span> <span class="text-gray-700"><strong>Basava Dharma Peetha:</strong> Spiritual center nearby.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
 
-    <!-- Interactive Section -->
-    <div class="grid lg:grid-cols-2 gap-0">
-        <!-- Cost Calculator -->
-        <section id="calculator" class="bg-stone-900 text-cream-50 py-24 px-8 lg:px-16 flex flex-col justify-center relative overflow-hidden">
-            <!-- decorative circles -->
-            <div class="absolute top-0 right-0 w-64 h-64 bg-stone-800 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
+    <!-- ACCOMMODATION & FOOD SECTION -->
+    <section id="hotels" class="py-16 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-serif text-center text-royal-900 mb-16">Stays & Delicacies</h2>
             
-            <div class="max-w-lg mx-auto w-full relative z-10">
-                <span class="text-teal-400 font-serif italic text-lg block mb-2">Smart Planning</span>
-                <h2 class="text-3xl font-serif font-medium mb-10">Trip Estimator</h2>
-                
-                <div class="space-y-8">
-                    <div>
-                        <div class="flex justify-between text-sm mb-2 text-stone-400">
-                            <label>Vehicle Mileage</label>
-                            <span class="text-white"><span id="mileageVal">15</span> km/l</span>
+            <div class="grid md:grid-cols-2 gap-12 mb-16">
+                <!-- Stays Column -->
+                <div>
+                    <h3 class="flex items-center text-2xl font-serif text-royal-800 mb-8">
+                        <span class="bg-royal-100 p-2 rounded-lg mr-3 text-royal-600">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                        </span>
+                        Where to Stay
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-4 p-4 border border-gray-100 rounded-2xl hover:shadow-lg transition bg-cream/30">
+                            <div class="w-24 h-24 bg-gray-200 rounded-xl flex-shrink-0 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover" onerror="handleImageError(this)">
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">The Fern Residency</h4>
+                                <p class="text-xs text-royal-600 font-bold uppercase tracking-wide mb-1">Bijapur (Luxury)</p>
+                                <p class="text-sm text-gray-500">Modern amenities, swimming pool, and excellent service.</p>
+                            </div>
                         </div>
-                        <input type="range" id="mileage" min="5" max="30" value="15" class="w-full h-1 bg-stone-700 rounded-lg appearance-none cursor-pointer accent-teal-400">
+
+                        <div class="flex gap-4 p-4 border border-gray-100 rounded-2xl hover:shadow-lg transition bg-cream/30">
+                            <div class="w-24 h-24 bg-gray-200 rounded-xl flex-shrink-0 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover" onerror="handleImageError(this)">
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Hotel Madhuvan Int.</h4>
+                                <p class="text-xs text-royal-600 font-bold uppercase tracking-wide mb-1">Bijapur (Mid-range)</p>
+                                <p class="text-sm text-gray-500">Centrally located, clean rooms, and a famous veg restaurant.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 p-4 border border-gray-100 rounded-2xl hover:shadow-lg transition bg-cream/30">
+                            <div class="w-24 h-24 bg-gray-200 rounded-xl flex-shrink-0 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover" onerror="handleImageError(this)">
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">KSTDC Mayura Krishna</h4>
+                                <p class="text-xs text-royal-600 font-bold uppercase tracking-wide mb-1">Almatti (Scenic)</p>
+                                <p class="text-sm text-gray-500">The only hotel with a direct view of the dam and gardens.</p>
+                            </div>
+                        </div>
                     </div>
-                     <div>
-                        <div class="flex justify-between text-sm mb-2 text-stone-400">
-                            <label>Fuel Price</label>
-                            <span class="text-white">₹<span id="fuelVal">105</span>/l</span>
+                </div>
+
+                <!-- Food Column -->
+                <div>
+                    <h3 class="flex items-center text-2xl font-serif text-royal-800 mb-8">
+                        <span class="bg-gold-100 p-2 rounded-lg mr-3 text-gold-600">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        </span>
+                        What to Eat
+                    </h3>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm text-center group">
+                            <div class="h-32 bg-gray-100 rounded-xl mb-4 overflow-hidden">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/North_Karnataka_Meal.jpg/640px-North_Karnataka_Meal.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" onerror="handleImageError(this)">
+                            </div>
+                            <h4 class="font-bold text-gray-800">Jolada Rotti Oota</h4>
+                            <p class="text-xs text-gray-500 mt-1">Sorghum bread with spicy curries (Ennegai).</p>
                         </div>
-                        <input type="range" id="fuelPrice" min="90" max="120" value="105" class="w-full h-1 bg-stone-700 rounded-lg appearance-none cursor-pointer accent-teal-400">
-                    </div>
-                    <div>
-                        <div class="flex justify-between text-sm mb-2 text-stone-400">
-                            <label>Hotel Budget (Per Night)</label>
-                            <span class="text-white" id="hotelDisplay">₹3000</span>
+
+                        <div class="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm text-center group">
+                            <div class="h-32 bg-gray-100 rounded-xl mb-4 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" onerror="handleImageError(this)">
+                            </div>
+                            <h4 class="font-bold text-gray-800">Shenga Chutney</h4>
+                            <p class="text-xs text-gray-500 mt-1">Spicy peanut powder, a staple side dish.</p>
                         </div>
-                        <input type="range" id="hotelPrice" min="1000" max="10000" step="500" value="3000" class="w-full h-1 bg-stone-700 rounded-lg appearance-none cursor-pointer accent-rose-400">
                     </div>
                     
-                    <div class="pt-8 border-t border-stone-800 mt-8">
-                        <div class="flex justify-between items-baseline">
-                            <span class="text-stone-400 font-medium">Estimated Total</span>
-                            <span class="text-5xl font-serif text-teal-400" id="totalCost">₹0</span>
-                        </div>
-                        <p class="text-xs text-stone-600 mt-4 leading-relaxed">*Includes ~550km fuel, 2 nights stay, and ₹3000 buffer for food & tickets.</p>
+                    <div class="mt-6 bg-gold-50 p-4 rounded-xl border border-gold-100">
+                        <p class="text-sm text-gold-800 text-center">
+                            <strong>Tip:</strong> Look for local "Khanavalis" (Mess) in Bijapur for the most authentic meals.
+                        </p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Packing Checklist -->
-        <section id="checklist" class="bg-pastel-blue/30 py-24 px-8 lg:px-16 flex flex-col justify-center">
-            <div class="max-w-lg mx-auto w-full">
-                 <span class="text-rose-500 font-serif italic text-lg block mb-2">Don't Forget</span>
-                 <h2 class="text-3xl font-serif font-medium mb-10 text-stone-900">Essentials List</h2>
-                 
-                <div class="bg-white rounded-3xl shadow-lg shadow-pastel-blue/50 p-2 overflow-hidden">
-                    <div id="checklist-container" class="divide-y divide-dashed divide-stone-100 max-h-[400px] overflow-y-auto custom-scrollbar">
-                        <!-- Items injected by JS -->
+    <!-- INTERACTIVE TOOLS SECTION -->
+    <section id="tools" class="py-16 bg-cream border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-serif text-center text-royal-900 mb-12">Trip Utilities</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Fuel Calculator -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-lg">
+                    <h3 class="text-xl font-bold text-royal-800 mb-6 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                        Budget Estimator
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Total Distance (Round Trip)</label>
+                            <input type="number" value="550" class="w-full bg-gray-50 border border-gray-200 rounded-lg p-3 text-sm font-bold text-gray-700" disabled>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Your Car Mileage (km/l)</label>
+                            <input type="number" id="mileage" value="15" oninput="calculateCost()" class="w-full bg-white border border-gray-300 rounded-lg p-3 text-sm focus:border-royal-500 outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Fuel Price (₹/l)</label>
+                            <input type="number" id="fuelPrice" value="105" oninput="calculateCost()" class="w-full bg-white border border-gray-300 rounded-lg p-3 text-sm focus:border-royal-500 outline-none transition">
+                        </div>
+                        <div class="mt-6 p-4 bg-royal-900 rounded-xl text-white flex justify-between items-center shadow-md">
+                            <span class="text-sm opacity-80">Estimated Fuel Cost</span>
+                            <span class="text-2xl font-serif font-bold" id="totalCost">₹3,850</span>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="mt-8 text-center">
-                    <button id="reset-checklist" class="text-sm font-medium text-stone-400 hover:text-rose-500 transition flex items-center justify-center mx-auto space-x-2">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
-                        <span>Reset Checklist</span>
-                    </button>
+
+                <!-- Packing List -->
+                <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-lg">
+                    <h3 class="text-xl font-bold text-royal-800 mb-6 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                        Packing Essentials
+                    </h3>
+                    <div class="space-y-4">
+                        <label class="flex items-center space-x-3 cursor-pointer group">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-royal-600 rounded focus:ring-royal-500 border-gray-300 transition">
+                            <span class="text-gray-700 text-sm">Vehicle Documents (RC/Ins)</span>
+                        </label>
+                        <label class="flex items-center space-x-3 cursor-pointer group">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-royal-600 rounded focus:ring-royal-500 border-gray-300 transition">
+                            <span class="text-gray-700 text-sm">Sunscreen & Hat (Bijapur Sun)</span>
+                        </label>
+                        <label class="flex items-center space-x-3 cursor-pointer group">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-royal-600 rounded focus:ring-royal-500 border-gray-300 transition">
+                            <span class="text-gray-700 text-sm">Comfortable Walking Shoes</span>
+                        </label>
+                        <label class="flex items-center space-x-3 cursor-pointer group">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 text-royal-600 rounded focus:ring-royal-500 border-gray-300 transition">
+                            <span class="text-gray-700 text-sm">Cash (Small change for tolls)</span>
+                        </label>
+                    </div>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-stone-100 pt-20 pb-12">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <div class="mb-8">
-                <span class="font-serif font-bold text-3xl tracking-tight text-stone-800">Deccan<span class="text-rose-500 italic">Vibes</span></span>
-            </div>
-            
-            <div class="flex justify-center space-x-8 mb-12">
-                <a href="#" class="w-10 h-10 rounded-full bg-cream-100 flex items-center justify-center text-stone-600 hover:bg-rose-100 hover:text-rose-600 transition">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
-                </a>
-                <a href="#" class="w-10 h-10 rounded-full bg-cream-100 flex items-center justify-center text-stone-600 hover:bg-rose-100 hover:text-rose-600 transition">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                </a>
-            </div>
-            
-            <p class="text-stone-400 font-light text-sm">© 2025 Deccan Vibes Journey. Crafted with ❤️ for roadtrippers.</p>
-        </div>
+    <footer class="bg-royal-900 text-white py-12 text-center">
+        <h2 class="font-serif text-2xl mb-4">Deccan<span class="text-gold-400">Odyssey</span></h2>
+        <p class="text-royal-100 text-sm mb-8">Have a safe and memorable journey.</p>
+        <div class="text-xs text-royal-500 uppercase tracking-widest">© 2025 Road Trip Planner</div>
     </footer>
 
-    <!-- App Scripts -->
-    <script src="app.js"></script>
+    <!-- GEMINI CHAT WIDGET -->
+    <div id="chat-widget" class="chat-widget fixed bottom-6 right-6 w-96 bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden z-50 chat-hidden">
+        <div class="bg-royal-900 p-4 flex justify-between items-center text-white">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl">👑</span>
+                <div>
+                    <h3 class="font-bold text-sm">The Royal Historian</h3>
+                    <p class="text-xs text-royal-200">Ask about history or travel tips</p>
+                </div>
+            </div>
+            <button onclick="toggleChat()" class="text-white hover:bg-royal-800 p-1 rounded">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        
+        <div id="chat-messages" class="h-80 overflow-y-auto p-4 bg-gray-50 space-y-3">
+            <div class="flex items-start gap-2">
+                <div class="bg-royal-900 text-white w-8 h-8 rounded-full flex items-center justify-center text-xs flex-shrink-0">RH</div>
+                <div class="bg-white p-3 rounded-lg rounded-tl-none border border-gray-100 text-sm text-gray-700 shadow-sm">
+                    Welcome, traveler! I am the Royal Historian of the Deccan. How may I guide you on your journey to Bijapur today?
+                </div>
+            </div>
+        </div>
+
+        <div class="p-4 bg-white border-t border-gray-100">
+            <div class="flex gap-2">
+                <input type="text" id="chat-input" placeholder="Ask a question..." class="flex-1 border border-gray-300 rounded-full px-4 py-2 text-sm focus:outline-none focus:border-royal-500" onkeypress="handleEnter(event)">
+                <button onclick="sendMessage()" class="bg-royal-900 text-white p-2 rounded-full hover:bg-royal-800 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- 1. GEMINI API INTEGRATION ---
+        async function callGemini(prompt, systemInstruction = "You are a polite Royal Historian guide for the Deccan plateau road trip. Keep answers under 60 words.") {
+            const apiKey = ""; // API Key provided by environment
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                systemInstruction: { parts: [{ text: systemInstruction }] }
+            };
+
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                
+                if (!response.ok) throw new Error('Network response was not ok');
+                
+                const data = await response.json();
+                return data.candidates[0].content.parts[0].text;
+            } catch (error) {
+                console.error("Gemini API Error:", error);
+                return "My archives seem to be temporarily inaccessible. Please try again later.";
+            }
+        }
+
+        // --- 2. CHAT WIDGET LOGIC ---
+        function toggleChat() {
+            const widget = document.getElementById('chat-widget');
+            widget.classList.toggle('chat-hidden');
+            widget.classList.toggle('chat-visible');
+        }
+
+        function handleEnter(e) {
+            if (e.key === 'Enter') sendMessage();
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const msg = input.value.trim();
+            if (!msg) return;
+
+            // Add User Message
+            addMessage(msg, 'user');
+            input.value = '';
+
+            // Add Loading State
+            const loadingId = addLoadingIndicator();
+
+            // Call API
+            const response = await callGemini(msg);
+            
+            // Remove Loading & Add AI Message
+            removeLoadingIndicator(loadingId);
+            addMessage(response, 'ai');
+        }
+
+        function addMessage(text, sender) {
+            const container = document.getElementById('chat-messages');
+            const div = document.createElement('div');
+            div.className = `flex items-start gap-2 ${sender === 'user' ? 'flex-row-reverse' : ''}`;
+            
+            const avatar = document.createElement('div');
+            avatar.className = `w-8 h-8 rounded-full flex items-center justify-center text-xs flex-shrink-0 ${sender === 'user' ? 'bg-gray-200 text-gray-600' : 'bg-royal-900 text-white'}`;
+            avatar.innerText = sender === 'user' ? 'You' : 'RH';
+
+            const bubble = document.createElement('div');
+            bubble.className = `p-3 rounded-lg text-sm shadow-sm border border-gray-100 max-w-[80%] ${sender === 'user' ? 'bg-royal-50 text-royal-900 rounded-tr-none' : 'bg-white text-gray-700 rounded-tl-none'}`;
+            bubble.innerText = text;
+
+            div.appendChild(avatar);
+            div.appendChild(bubble);
+            container.appendChild(div);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function addLoadingIndicator() {
+            const id = 'loading-' + Date.now();
+            const container = document.getElementById('chat-messages');
+            const div = document.createElement('div');
+            div.id = id;
+            div.className = 'flex items-start gap-2';
+            div.innerHTML = `
+                <div class="bg-royal-900 text-white w-8 h-8 rounded-full flex items-center justify-center text-xs flex-shrink-0">RH</div>
+                <div class="bg-white p-3 rounded-lg rounded-tl-none border border-gray-100 text-sm text-gray-700 shadow-sm flex gap-1 items-center">
+                    <div class="w-2 h-2 bg-royal-400 rounded-full typing-dot"></div>
+                    <div class="w-2 h-2 bg-royal-400 rounded-full typing-dot"></div>
+                    <div class="w-2 h-2 bg-royal-400 rounded-full typing-dot"></div>
+                </div>
+            `;
+            container.appendChild(div);
+            container.scrollTop = container.scrollHeight;
+            return id;
+        }
+
+        function removeLoadingIndicator(id) {
+            const el = document.getElementById(id);
+            if (el) el.remove();
+        }
+
+        // --- 3. SECRET REVEAL LOGIC ---
+        async function revealSecret(btn, topic) {
+            const container = btn.parentElement.nextElementSibling; // The div with 'gemini-response' class
+            const label = btn.querySelector('.gemini-label');
+            
+            // UI Loading State
+            label.innerText = "Consulting...";
+            btn.disabled = true;
+            container.classList.remove('hidden');
+            container.innerHTML = `<span class="animate-pulse">Consulting the royal archives about ${topic}...</span>`;
+
+            // API Call
+            const prompt = `Tell me one fascinating, lesser-known secret or fun fact about ${topic} in 1 short sentence.`;
+            const fact = await callGemini(prompt);
+
+            // Display Result
+            container.innerHTML = `✨ <strong>Did you know?</strong> ${fact}`;
+            label.innerText = "Secret Revealed";
+            btn.classList.add('bg-gold-200'); // Keep it highlighted
+        }
+
+        // --- 4. APP LOGIC (Tabs & Calc) ---
+        function switchDay(dayId) {
+            document.querySelectorAll('.day-content').forEach(el => {
+                el.classList.add('hidden');
+                el.classList.remove('block');
+            });
+            const selected = document.getElementById(dayId);
+            if(selected) {
+                selected.classList.remove('hidden');
+                selected.classList.add('block');
+            }
+            document.querySelectorAll('.day-btn').forEach(btn => {
+                btn.classList.remove('bg-royal-900', 'text-white', 'active', 'shadow-lg');
+                btn.classList.add('bg-white', 'text-gray-500', 'border-gray-200');
+            });
+            const btn = document.getElementById('btn-' + dayId);
+            if(btn) {
+                btn.classList.remove('bg-white', 'text-gray-500', 'border-gray-200');
+                btn.classList.add('bg-royal-900', 'text-white', 'active', 'shadow-lg');
+            }
+        }
+
+        function switchPlaceInfo(clickedBtn, targetId) {
+            const contentContainer = clickedBtn.closest('.bg-white');
+            const infos = contentContainer.querySelectorAll('.place-info');
+            infos.forEach(el => {
+                el.classList.add('hidden');
+                el.classList.remove('block');
+            });
+            const target = contentContainer.querySelector('#' + targetId);
+            if(target) {
+                target.classList.remove('hidden');
+                target.classList.add('block');
+            }
+            const buttons = clickedBtn.parentElement.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active', 'text-royal-800', 'font-bold');
+                btn.classList.add('text-gray-400', 'font-medium');
+            });
+            clickedBtn.classList.remove('text-gray-400', 'font-medium');
+            clickedBtn.classList.add('active', 'text-royal-800', 'font-bold');
+        }
+
+        function calculateCost() {
+            const dist = 550;
+            const mileage = document.getElementById('mileage').value;
+            const price = document.getElementById('fuelPrice').value;
+            if(mileage > 0) {
+                const cost = (dist / mileage) * price;
+                document.getElementById('totalCost').innerText = '₹' + Math.round(cost).toLocaleString();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            switchDay('day1');
+        });
+    </script>
 </body>
 </html>
